@@ -1,4 +1,5 @@
 import ClassicEditorBase from "@ckeditor/ckeditor5-editor-classic/src/classiceditor";
+import Markdown from '@ckeditor/ckeditor5-markdown-gfm/src/markdown';
 import Essentials from "@ckeditor/ckeditor5-essentials/src/essentials";
 import Autoformat from "@ckeditor/ckeditor5-autoformat/src/autoformat";
 import {
@@ -53,6 +54,7 @@ import { StrapiUploadAdapter } from "@gtomato/ckeditor5-strapi-upload-plugin";
 import { StrapiMediaLib } from "./strapi-medialib-plugin";
 import sanitizeHtml from "sanitize-html";
 import FullScreen from "./fullscreen-plugin";
+import { extra } from "./auto-correct-list";
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
@@ -95,6 +97,7 @@ ClassicEditor.builtinPlugins = [
     HorizontalLine,
     Alignment,
     AutoLink,
+    Markdown,
     SpecialCharacters,
     SpecialCharactersEssentials,
     HtmlEmbed,
@@ -114,41 +117,40 @@ ClassicEditor.defaultConfig = {
         items: [
             "heading",
             "|",
-            "fontFamily",
-            "fontSize",
+            // "fontFamily",
+            // "fontSize",
             "fontColor",
-            "highLight",
+            // "highLight",
             "|",
             "bold",
             "italic",
             "underline",
-            "strikethrough",
-            "subscript",
-            "superscript",
+            // "strikethrough",
+            // "subscript",
+            // "superscript",
             "removeFormat",
             "code",
             "link",
             "bulletedList",
             "numberedList",
-            "todoList",
-            "insertImage",
+            // "todoList",
             "strapiMediaLib",
+            // "|",
+            // "alignment",
+            // "indent",
+            // "outdent",
             "|",
-            "alignment",
-            "indent",
-            "outdent",
-            "|",
-            "specialCharacters",
+            // "specialCharacters",
             "blockQuote",
             "insertTable",
-            "mediaEmbed",
-            "htmlEmbed",
+            // "mediaEmbed",
+            // "htmlEmbed",
             "codeBlock",
-            "horizontalLine",
+            // "horizontalLine",
             "|",
             "sourceEditing",
             "|",
-            "fullScreen",
+            // "fullScreen",
             "undo",
             "redo",
         ],
@@ -185,6 +187,30 @@ ClassicEditor.defaultConfig = {
             "resizeImage:original",
             "|",
             "linkImage",
+        ],
+    },
+    fontColor: {
+        colors: [
+            {
+                color: '#212529',
+                label: 'Default Text'
+            },
+            {
+                color: '#ffffff',
+                label: 'Text White'
+            },
+            {
+                color: '#2C439B',
+                label: 'ChargeOver Blue'
+            },
+            {
+                color: '#F26B3D',
+                label: 'ChargeOver Orange'
+            },
+            {
+                color: '#72C8B0',
+                label: 'ChargeOver Mint'
+            },
         ],
     },
     table: {
@@ -265,7 +291,7 @@ ClassicEditor.defaultConfig = {
         ],
     },
     link: {
-        defaultProtocol: "http://",
+        defaultProtocol: "https://",
         decorators: [
             {
                 mode: "manual",
@@ -284,6 +310,14 @@ ClassicEditor.defaultConfig = {
                 },
             },
         ],
+    },
+    typing: {
+        transformations: {
+            remove: [
+                'quotes',
+            ],
+            extra
+        }
     },
     // This value must be kept in sync with the language defined in webpack.config.js.
     language: "en",

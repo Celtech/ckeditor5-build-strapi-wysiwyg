@@ -1,6 +1,6 @@
 {
-  "name": "ckeditor5-build-strapi-wysiwyg",
-  "version": "2.1.1",
+  "name": "@chargeover/ckeditor5-markdown-build",
+  "version": "1.0.2",
   "description": "CKEditor 5 build for Strapi WYSIWYG editor replacement",
   "author": "Pavel Roslovets (https://github.com/roslovets)",
   "license": "GPL-2.0-or-later",
@@ -76,6 +76,7 @@
     "@ckeditor/ckeditor5-theme-lark": "^33.0.0",
     "@ckeditor/ckeditor5-typing": "^33.0.0",
     "@gtomato/ckeditor5-strapi-upload-plugin": "^1.0.0",
+    "@ckeditor/ckeditor5-markdown-gfm": "^33.0.0",
     "css-loader": "^5.2.7",
     "postcss-loader": "^4.3.0",
     "raw-loader": "^4.0.2",

@@ -54,6 +54,7 @@ import { StrapiUploadAdapter } from "@gtomato/ckeditor5-strapi-upload-plugin";
 import { StrapiMediaLib } from "./strapi-medialib-plugin";
 import sanitizeHtml from "sanitize-html";
 import FullScreen from "./fullscreen-plugin";
+// import Ckeditor5LinterPlugin from "./ckeditor5-linter-plugin";
 import { extra } from "./auto-correct-list";
 
 export default class ClassicEditor extends ClassicEditorBase {}
@@ -109,27 +110,29 @@ ClassicEditor.builtinPlugins = [
     FullScreen,
     TableProperties,
     TableCellProperties,
+    // Ckeditor5LinterPlugin,
 ];
 
 // Editor configuration.
 ClassicEditor.defaultConfig = {
     toolbar: {
         items: [
+            // "linter",
+            // "|",
             "heading",
-            "|",
+            // "|",
             // "fontFamily",
             // "fontSize",
-            "fontColor",
+            // "fontColor",
             // "highLight",
-            "|",
+            // "|",
             "bold",
             "italic",
-            "underline",
+            // "underline", // Can't be done in markdown
             // "strikethrough",
             // "subscript",
             // "superscript",
-            "removeFormat",
-            "code",
+            "|",
             "link",
             "bulletedList",
             "numberedList",
@@ -139,22 +142,24 @@ ClassicEditor.defaultConfig = {
             // "alignment",
             // "indent",
             // "outdent",
-            "|",
+            // "|",
             // "specialCharacters",
             "blockQuote",
             "insertTable",
+            "codeBlock",
+            "code",
             // "mediaEmbed",
             // "htmlEmbed",
-            "codeBlock",
             // "horizontalLine",
             "|",
             "sourceEditing",
             "|",
             // "fullScreen",
+            "removeFormat",
             "undo",
             "redo",
         ],
-        shouldNotGroupWhenFull: true,
+        shouldNotGroupWhenFull: false,
     },
     image: {
         styles: ["alignLeft", "alignCenter", "alignRight"],
@@ -217,9 +222,9 @@ ClassicEditor.defaultConfig = {
         contentToolbar: [
             "tableColumn",
             "tableRow",
-            "mergeTableCells",
-            "tableProperties",
-            "tableCellProperties",
+            // "mergeTableCells",
+            // "tableProperties",
+            // "tableCellProperties",
         ],
     },
     heading: {

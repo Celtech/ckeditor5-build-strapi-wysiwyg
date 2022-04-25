@@ -1,6 +1,6 @@
 {
   "name": "@chargeover/ckeditor5-markdown-build",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "CKEditor 5 build for Strapi WYSIWYG editor replacement",
   "author": "Pavel Roslovets (https://github.com/roslovets)",
   "license": "GPL-2.0-or-later",
@@ -87,7 +87,5 @@
     "webpack": "^5.70.0",
     "webpack-cli": "^4.9.2"
   },
-  "dependencies": {
-
-  }
+  "dependencies": {}
 }
